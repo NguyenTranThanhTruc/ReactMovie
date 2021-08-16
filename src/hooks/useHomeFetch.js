@@ -42,5 +42,12 @@ export const useHomeFetch = () => {
     fetchMovies(1, searchTerm);
   }, [searchTerm]);
 
+  // load more
+  useEffect(() => {
+    if (!isLoadingMore) return;
+    fetchMovies(state.page + 1, searchTerm);
+    setIsLoadingMore(false);
+  }, [isLoadingMore, state.page, searchTerm]);
+
   return { state, loading, error, searchTerm, setSearchTerm, setIsLoadingMore };
 };

@@ -12,8 +12,6 @@ import { Context } from "../../context";
 const Header = () => {
   const [user] = useContext(Context);
 
-  console.log(user);
-
   return (
     <Wrapper>
       <Content>
@@ -21,10 +19,10 @@ const Header = () => {
           <LogoImg src={RMDBLogo} alt="rmdb-logo" />
         </Link>
         {user ? (
-          <span className="loggedIn">Logged in as: {user.username}</span>
+          <span>Logged in as: {user.username}</span>
         ) : (
           <Link to="/login">
-            <span className="login">Log in</span>
+            <span>Log in</span>
           </Link>
         )}
         <TMDBLogoImg src={TMDBLogo} alt="tmdb-logo" />
